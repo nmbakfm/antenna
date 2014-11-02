@@ -2,6 +2,10 @@
 
 #include "ofMain.h"
 
+// set true when arduino unconnected
+#define NO_ARDUINO TRUE
+#define USB_MODEM "/dev/tty.usbmodem1411"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -18,5 +22,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+    
+#if NO_ARDUINO
+#else
+    ofSerial serial;
+#endif
 		
 };

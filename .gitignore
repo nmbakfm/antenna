@@ -2,3 +2,5 @@
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
 .DS_Store
+
+bin/AntennaDebug.app

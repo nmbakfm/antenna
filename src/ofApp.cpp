@@ -2,7 +2,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofBackground(0);
+    ofSetVerticalSync(true);
+    
+#if NO_ARDUINO
+#else
+    serial.setup(USB_MODEM, 9600);
+#endif
+    
 }
 
 //--------------------------------------------------------------
