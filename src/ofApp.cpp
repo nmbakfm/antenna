@@ -6,30 +6,25 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(45);
     
-#if NO_ARDUINO
-    
-#else
-    serial.setup(USB_MODEM, 9600);
-#endif
+    ac.setup(USB_MODEM, 9600);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-#if NO_ARDUINO
-    arduino_simulator.update();
-#else
-    
-#endif
+    ac.update();
+    for (int i=0; i<32; ++i) {
+        cout << i << ": " << (ac.isOn(i) ? "on" : "off") << endl;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-#if NO_ARDUINO
-    cout << arduino_simulator.getData() << endl;
-#else
-    
-#endif
+    ofSetColor(255, 0, 0);
+    for (int i=0; i<32; ++i) {
+        ac.isOn(i) ? ofFill() : ofNoFill();
+        ofCircle(ofGetWidth()/2 + 300*cos(i*TWO_PI/32), ofGetHeight()/2 + 300*sin(i*TWO_PI/32), 10);
+    }
 }
 
 //--------------------------------------------------------------
