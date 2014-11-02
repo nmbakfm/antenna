@@ -4,8 +4,10 @@
 void ofApp::setup(){
     ofBackground(0);
     ofSetVerticalSync(true);
+    ofSetFrameRate(45);
     
 #if NO_ARDUINO
+    
 #else
     serial.setup(USB_MODEM, 9600);
 #endif
@@ -14,12 +16,20 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+#if NO_ARDUINO
+    arduino_simulator.update();
+#else
+    
+#endif
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+#if NO_ARDUINO
+    cout << arduino_simulator.getData() << endl;
+#else
+    
+#endif
 }
 
 //--------------------------------------------------------------

@@ -1,10 +1,15 @@
 #pragma once
 
-#include "ofMain.h"
 
 // set true when arduino unconnected
 #define NO_ARDUINO TRUE
 #define USB_MODEM "/dev/tty.usbmodem1411"
+
+#include "ofMain.h"
+
+#if NO_ARDUINO
+#include "ArduinoSimulator.h"
+#endif;
 
 class ofApp : public ofBaseApp{
 
@@ -24,6 +29,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
 #if NO_ARDUINO
+    ArduinoSimulator arduino_simulator;
 #else
     ofSerial serial;
 #endif
