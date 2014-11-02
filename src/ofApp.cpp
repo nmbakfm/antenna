@@ -13,16 +13,17 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     ac.update();
-    for (int i=0; i<32; ++i) {
-        cout << i << ": " << (ac.isOn(i) ? "on" : "off") << endl;
-    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(255, 0, 0);
     for (int i=0; i<32; ++i) {
-        ac.isOn(i) ? ofFill() : ofNoFill();
+        if(ac.isTurnedOn(i)){
+            ofFill();
+        }else{
+            ofNoFill();
+        }
         ofCircle(ofGetWidth()/2 + 300*cos(i*TWO_PI/32), ofGetHeight()/2 + 300*sin(i*TWO_PI/32), 10);
     }
 }
