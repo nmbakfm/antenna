@@ -18,7 +18,7 @@ public:
     unsigned long getData();
 private:
     int current_count;
-    const int max_count = 32;
+    const int max_count = 7;
 };
 
 #endif /* defined(__Antenna__ArduinoSimulator__) */
