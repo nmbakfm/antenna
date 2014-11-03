@@ -18,13 +18,13 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(255, 0, 0);
-    for (int i=0; i<32; ++i) {
-        if(ac.isTurnedOn(i)){
+    for (int i=0; i<7; ++i) {
+        if(ac.isOn(i)){
             ofFill();
         }else{
             ofNoFill();
         }
-        ofCircle(ofGetWidth()/2 + 300*cos(i*TWO_PI/32), ofGetHeight()/2 + 300*sin(i*TWO_PI/32), 10);
+        ofCircle(ofGetWidth()/2 + 300*cos(i*TWO_PI/7), ofGetHeight()/2 + 300*sin(i*TWO_PI/7), 10);
     }
 }
 

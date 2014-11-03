@@ -27,7 +27,11 @@ void ArduinoController::update(){
     arduino_simulator.update();
     data = arduino_simulator.getData();
 #else
-    data = 0x0000006a; // dummy pin1,3,5,6 are on
+    if(serial.isInitialized()){
+        if(serial.available()){
+            data = serial.readByte();
+        }
+    }
 #endif
 }
 

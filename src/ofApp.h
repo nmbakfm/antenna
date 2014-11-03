@@ -1,6 +1,6 @@
 #pragma once
 
-#define USB_MODEM "/dev/tty.usbmodem1411"
+#define USB_MODEM "/dev/tty.usbmodem411"
 
 #include "ofMain.h"
 #include "ArduinoController.h"
