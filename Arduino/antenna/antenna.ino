@@ -22,7 +22,7 @@ void loop() {
   
   int i = 0;
   for (i = 0; i < PINNUM; ++i) {
-    if (capacitive_sensor[i].capacitiveSensor(30)>1000) {
+    if (capacitive_sensor[i].capacitiveSensor(30)>300) {
       data += (1 << i);
     }
   }
