@@ -4,7 +4,7 @@
 void ofApp::setup(){
     ofBackground(0);
     ofSetVerticalSync(true);
-    ofSetFrameRate(45);
+    ofSetFrameRate(100);
     
     ac.setup(USB_MODEM, 9600);
     

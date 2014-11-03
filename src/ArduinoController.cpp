@@ -30,6 +30,7 @@ void ArduinoController::update(){
     if(serial.isInitialized()){
         if(serial.available()){
             data = serial.readByte();
+            cout << data << endl;
         }
     }
 #endif
